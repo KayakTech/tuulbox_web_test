@@ -2,15 +2,9 @@
 
 const nextConfig = {
     reactStrictMode: false,
-    images: {
-        loader: "default",
-        remotePatterns: [
-            {
-                protocol: "https",
-                hostname: "*",
-            },
-        ],
-    },
+images: {
+    unoptimized: true,
+  },
 };
 
 module.exports = nextConfig;
