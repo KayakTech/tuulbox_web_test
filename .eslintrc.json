@@ -1,0 +1,4 @@
+{
+    "extends": "next/core-web-vitals",
+    "ignorePatterns": ["/pages/chat-app/assets/*"]
+}

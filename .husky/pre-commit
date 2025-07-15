@@ -1,0 +1,44 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+
+echo "Doing pre-commit checks ..."
+
+echo "CHECKING - code smells "
+yarn lint
+status=$?
+
+if $status;
+then
+    echo $status
+    exit 1
+fi
+
+echo "FORMAT CODE WITH PRETTIER"
+yarn prettier-format
+status=$?
+
+if $status;
+then
+    echo $status
+    exit 1
+fi
+
+
+echo "CHECKING - Code style"
+yarn prettier-check
+status=$?
+
+if $status;
+then
+    echo $status
+    exit 1
+fi
+
+
+
+
+
+
+echo "Passed pre-commit check"
+

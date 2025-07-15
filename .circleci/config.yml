@@ -1,0 +1,104 @@
+version: 2.1
+
+jobs:
+    build:
+        resource_class: medium
+        docker:
+            - image: cimg/node:16.14-browsers
+
+        steps:
+            - checkout
+
+            - restore_cache:
+                  keys:
+                      - tuulboxfrontend-npm-deps-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+                      - tuulboxfrontend-npm-deps-{{ checksum "package.json" }}
+                      - tuulboxfrontend-npm-deps-
+
+            - run:
+                  name: Run stylechecks
+                  command: ./bin/check_style.sh
+
+            - run:
+                  name: Install Packages
+                  command: |
+                      npm install --force yarn
+                      yarn install
+
+            - save_cache:
+                  name: Save yarn Package Cache
+                  key: tuulboxfrontend-npm-deps-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+                  paths:
+                      - node_modules
+
+            - run:
+                  name: Build Application
+                  command: |
+                      yarn build
+
+    build_docker_image:
+        resource_class: medium
+        machine:
+            image: default
+        steps:
+            - checkout
+
+            - run:
+                  name: Create env file
+                  command: ./bin/load-env-vars.sh $CIRCLE_BRANCH
+
+            - run:
+                  name: Build image
+                  command: docker build -t tuulboxfrontend .
+
+            - run:
+                  name: Publish image
+                  command: ./bin/publish-image.sh $CIRCLE_BRANCH
+
+    deploy:
+        resource_class: small
+        working_directory: ~/circleci-bpohomes
+        docker:
+            - image: python:3.8-slim-buster
+        steps:
+            - checkout
+
+            - restore_cache:
+                  keys:
+                      - tuulboxfrontend-{{ .Branch }}-{{ checksum "package-lock.json"}}
+                      - tuulboxfrontend-{{ .Branch }}
+                      - tuulboxfrontend
+
+            - run:
+                  name: Install libraries
+                  command: |
+                      pip install awscli #setuptools
+
+            - run:
+                  name: Deploy to ECS
+                  command: ./bin/deploy-ecs.sh $CIRCLE_BRANCH
+
+workflows:
+    test_and_deploy:
+        jobs:
+            - build
+
+            - build_docker_image:
+                  requires:
+                      - build
+                  filters:
+                      branches:
+                          only:
+                              - master
+                              - staging
+                              - production
+
+            - deploy:
+                  requires:
+                      - build_docker_image
+                  filters:
+                      branches:
+                          only:
+                              - master
+                              - staging
+                              - production

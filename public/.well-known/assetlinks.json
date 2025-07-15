@@ -1,0 +1,9 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.tuulbox.app",
+      "sha256_cert_fingerprints":
+      ["B1:C1:72:9B:2E:04:C4:D3:73:78:3A:F5:ED:CC:33:85:05:31:AA:AC:1C:5E:46:72:B1:BD:61:3E:F6:3F:05:6C","36:31:9F:41:FC:70:B0:C0:1B:85:AC:2A:B8:D5:C3:10:49:9A:65:3F:4F:52:D7:3D:A5:AE:ED:99:0A:CD:20:DD"]
+    }
+  }]

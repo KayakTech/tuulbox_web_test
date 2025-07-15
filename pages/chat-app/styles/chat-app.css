@@ -1,0 +1,29 @@
+.chatMessagesContainer {
+    background-color: #f6f6f6;
+}
+
+.messageContent {
+    background-color: #fffffc;
+    border: 1px solid #f0f0f0;
+    padding: 8px 12px;
+    border-radius: 12px;
+}
+
+.textInput {
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Gotham-Book";
+    color: #333333;
+    outline: none;
+}
+
+.messageSender {
+    display: none;
+}
+
+.messageTimestamp {
+    font-weight: 400;
+    font-size: 10px;
+    color: #808080;
+}

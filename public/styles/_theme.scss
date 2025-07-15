@@ -1,0 +1,176 @@
+
+/*
+Pixels		  		  REM
+1px					0.06rem
+2px					0.13rem
+3px					0.19rem
+4px					0.3rem
+5px					0.3rem
+6px					0.4rem
+8px					0.5rem
+10px				0.6rem
+12px				0.8rem
+14px				0.9rem
+15px				0.9rem
+16px				1rem
+18px				1.1rem
+20px				1.3rem
+24px				1.5rem
+25px				1.6rem
+28px				1.8rem
+32px				2rem
+36px				2rem
+40px				3rem
+44px				3rem
+48px				3rem
+50px				3rem
+56px				4rem
+64px				4rem
+72px				5rem
+75px				5rem
+80px				5rem
+90px				6rem
+100px				6rem
+*/
+
+$white:    #FFFFFF;
+$gray-10:  #fbfbfb;
+$gray-50:  #F6F6F6;
+$gray-100: #E7E7E7;
+$gray-200: #D1D1D1;
+$gray-300: #B0B0B0;
+$gray-400: #888888;
+$gray-500: #6D6D6D;
+$gray-600: #5D5D5D;
+$gray-700: #4F4F4F;
+$gray-800: #454545;
+$gray-900: #333333;
+$black:    $gray-900;
+
+$blue-10:#F9FDFF;
+$blue-50:#ECF9FF;
+$blue-100:#EFF4FB;
+$blue-200: #B2E7FF;
+$blue-300: #7DDAFF;
+$blue-400: #40C2FF;
+$blue-500: #14A0FF;
+$blue-600: #007FFF;
+$blue-700: #0067FF;
+$blue-800: #0052CC;
+$blue-900:#0848A0;
+
+$accent-blue-700:#404F66;
+$accent-blue-800:#234167;
+$accent-blue-900:#102340;
+
+$red-50:#FFEEEE;
+$red-100: #FFDADA;
+$red-200: #FFBBBB;
+$red-300: #FF8B8B;
+$red-400: #FF4949;
+$red-500: #FF1111;
+$red-600: #FF0000;
+$red-700: #E70000;
+$red-800: #BE0000;
+$red-900: #A30000;
+
+$green-50:  #F0FFF4;
+$green-100: #D2F9E3;
+$green-200: #A9F1CC;
+$green-300: #71E4AF;
+$green-400: #35CE8D;
+$green-500: #14B575;
+$green-600: #099260;
+$green-700: #07754F;
+$green-800: #085D40;
+$green-900: #084C36;
+
+$yellow-50:  #FFFAF0;
+$yellow-100: #FFF4D3;
+$yellow-200: #FFE6A5;
+$yellow-300: #FFD26D;
+$yellow-400: #FFB332;
+$yellow-500: #FF9A0A;
+$yellow-600: #FF8200;
+$yellow-650: #DD6B20;
+$yellow-700: #CC5F02;
+$yellow-800: #A1490B;
+$yellow-900: #823E0C;
+
+$primary:       $accent-blue-900;
+$secondary:     $gray-50;
+$success:       $green-600;
+$info:          $blue-600;
+$warning:       $yellow-600;
+$warning-weak:  $yellow-100;
+$danger:        $red-600;
+$light:         $gray-100;
+$dark:          $gray-900;
+$success-weak:   $green-100;
+$light-blue:    $blue-100;
+
+$font-size-root:              null;
+$font-size-base:              1rem; // Assumes the browser default, typically `16px`
+$font-size-sm:                $font-size-base * .875 !default;
+$font-size-lg:                $font-size-base * 1.25 !default;
+
+// colors
+$primary-touched:#102340;
+$grey:#F5F5F5;
+$grey-light:#E0E0E0;
+$grey-deep:#EBEBEB;
+$grey-deeper:#ccc;
+$grey-hr:#E8E8E8;
+$blue:#86A1FE;
+$red:#D62828;
+$red-light:#FFDADA;
+$tb-accent:#822328;
+$input-box-shadow:0 0 0 0.06rem $accent-blue-900;
+$button-box-shadow:0 0 0 0.06rem rgba(28, 29, 29, 0.62);
+$dropdown-box-shadow:0 0.3rem 0.8rem 0 rgb(36 36 36 / 15%);
+$shadow-sm:0 0.125rem 0.25rem rgba(51, 51, 51, 0.075);
+
+// breakpoints
+$breakpoint-xs: 575px; //Mobile devices
+$breakpoint-sm: 767px; //tablets min of 576
+$breakpoint-md: 991px; //larger tables and small desktop 
+$breakpoint-lg: 1199px; //and below
+$breakpoint-xl: 1200px; //and above - larger screens
+
+$text-muted:$gray-400;
+$display-font-family: $font-regular;
+
+// others
+$border-radius:6px;
+$border-radius-card:1rem;
+$input-height:44px;
+$sidebar-width:312px;
+$topnav-height:5.5rem;
+$input-padding:0.5rem 1rem;
+$auth-form-width:390px;
+$auth-form-max-width:85%;
+$btn-sm-size:2.5rem;
+$data-card-height:14.5rem;
+$data-card-width:15.25rem;
+$input-border-radius:6px;
+
+
+$theme-colors: (
+  "primary": $primary,
+  "danger": $danger,
+  "success": $success,
+  "info": $info,
+  "warning": $warning,
+  "light": $light,
+  "dark": $dark
+);
+
+// Create your own map
+$custom-colors: (
+  "danger-weak": #FFF5F5,
+  "info-weak": #EBF8FF,
+  "success-weak": #F0FFF4,
+
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
