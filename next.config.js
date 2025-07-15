@@ -2,9 +2,6 @@
 
 const nextConfig = {
     reactStrictMode: false,
-
-    distDir: "build",
-
     images: {
         loader: "default",
         remotePatterns: [
@@ -13,9 +10,6 @@ const nextConfig = {
                 hostname: "*",
             },
         ],
-    },
-    experimental: {
-        esmExternals: false, // Required for some ESM packages like FullCalendar
     },
 };
 
