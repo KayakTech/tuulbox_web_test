@@ -241,7 +241,6 @@ export default function App({ Component, pageProps }: AppProps) {
                         property="og:title"
                         content="Manage Construction Projects, Tasks, Contacts & Files on the Go - tuulbox"
                     />
-                    <link rel="stylesheet" href="https://kt-chatbox.pages.dev/assets/kgt-chatbox.css" />
                     <meta
                         property="og:description"
                         content={"Manage Construction Projects, Tasks, Contacts & Files on the Go"}
